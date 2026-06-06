@@ -1,18 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter, Noto_Serif } from 'next/font/google'
+import { Josefin_Slab, Syne } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'react-hot-toast'
 
-const inter = Inter({
+const josefinSlab = Josefin_Slab({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-josefin-slab',
   display: 'swap',
 })
 
-const notoSerif = Noto_Serif({
+const syne = Syne({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-noto-serif',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-syne',
   display: 'swap',
 })
 
@@ -25,24 +27,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${notoSerif.variable}`}>
-      <body className="font-sans antialiased bg-background text-on-background min-h-svh">
+    <html lang="pt-BR" className={`${josefinSlab.variable} ${syne.variable}`}>
+      <body className="font-sans antialiased min-h-svh">
         {children}
         <Toaster
           position="top-right"
           toastOptions={{
             style: {
-              background: '#1e1e2e',
-              color: '#e3e0f7',
-              border: '1px solid rgba(255,255,255,0.1)',
+              background: '#faf7ef',
+              color: '#1e2d1a',
+              border: '1px solid #d8c8a0',
               borderRadius: '0.75rem',
-              backdropFilter: 'blur(10px)',
+              fontFamily: 'var(--font-syne)',
+              boxShadow: '0 4px 24px rgba(30,45,26,0.10)',
             },
             success: {
-              iconTheme: { primary: '#22d3ee', secondary: '#00363e' },
+              iconTheme: { primary: '#5a8a4a', secondary: '#faf7ef' },
             },
             error: {
-              iconTheme: { primary: '#ffb4ab', secondary: '#690005' },
+              iconTheme: { primary: '#b85c25', secondary: '#fbe8d8' },
             },
           }}
         />

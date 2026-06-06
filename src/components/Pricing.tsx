@@ -52,14 +52,14 @@ const PLANS = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 px-6 border-t border-white/5">
+    <section id="pricing" className="py-24 px-6 border-t border-parchment-wheat">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-primary-container text-label-sm uppercase tracking-widest mb-3">
+          <p className="text-sage text-label-sm uppercase tracking-widest mb-3 font-sans">
             Planos
           </p>
-          <h2 className="font-serif text-h2 text-on-surface mb-4">Preços simples</h2>
-          <p className="text-on-surface-variant text-body-lg">
+          <h2 className="font-serif text-h2 text-ink mb-4">Preços simples</h2>
+          <p className="text-bark text-body-lg">
             Comece grátis. Escale conforme crescer.
           </p>
         </div>
@@ -71,29 +71,29 @@ export default function Pricing() {
               className={cn(
                 'rounded-xl p-7 border transition-all duration-brand',
                 plan.highlighted
-                  ? 'backdrop-blur-focus bg-primary-container/5 border-primary-container/40 md:scale-105 shadow-glow-cyan-lg'
-                  : 'backdrop-blur-lens bg-white/[0.03] border-white/10 hover:border-white/20'
+                  ? 'bg-sun/[0.04] border-sun/40 md:scale-105 shadow-glow-sun-lg'
+                  : 'bg-parchment-warm border-parchment-wheat hover:border-parchment-deep/50'
               )}
             >
               {plan.highlighted && (
                 <div className="text-center mb-4">
-                  <span className="bg-primary-container text-on-primary text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="bg-sun text-forest text-xs font-bold px-3 py-1 rounded-full">
                     MAIS POPULAR
                   </span>
                 </div>
               )}
 
-              <h3 className="text-on-surface font-serif font-semibold text-xl mb-1">{plan.name}</h3>
+              <h3 className="text-ink font-serif font-semibold text-xl mb-1">{plan.name}</h3>
               <div className="flex items-baseline gap-1 mb-1">
-                <span className="text-3xl font-extrabold text-on-surface font-serif">{plan.price}</span>
-                {plan.period && <span className="text-on-surface-variant text-sm">{plan.period}</span>}
+                <span className="text-3xl font-extrabold text-ink font-serif">{plan.price}</span>
+                {plan.period && <span className="text-bark text-sm">{plan.period}</span>}
               </div>
-              <p className="text-on-surface-variant text-sm mb-6">{plan.desc}</p>
+              <p className="text-bark text-sm mb-6">{plan.desc}</p>
 
               <ul className="space-y-2.5 mb-8">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-on-surface-variant text-sm">
-                    <Check className="w-4 h-4 text-primary-container shrink-0" />
+                  <li key={f} className="flex items-center gap-2 text-bark text-sm">
+                    <Check className="w-4 h-4 text-sage shrink-0" />
                     {f}
                   </li>
                 ))}
@@ -103,8 +103,8 @@ export default function Pricing() {
                 className={cn(
                   'w-full py-3 rounded-lg font-semibold text-sm transition-all duration-200',
                   plan.highlighted
-                    ? 'bg-primary-container text-on-primary hover:bg-primary-container/90 hover:shadow-glow-cyan'
-                    : 'bg-white/5 border border-white/10 text-on-surface-variant hover:border-white/20 hover:text-on-surface'
+                    ? 'bg-sun text-forest hover:bg-sun-light hover:shadow-glow-sun'
+                    : 'bg-parchment-cream border border-parchment-wheat text-bark hover:border-parchment-deep/50 hover:text-ink'
                 )}
               >
                 {plan.cta}
