@@ -23,10 +23,10 @@ export default function ClipEditor({ clip, onChange, onClose, videoDuration = 60
     duration < 15 ? 'muito curto' : duration > 60 ? 'longo para Shorts' : 'ideal'
   const durationColor =
     duration < 15
-      ? 'bg-error/20 text-error border-error/30'
+      ? 'bg-clay/10 text-clay border-clay/30'
       : duration > 60
-      ? 'bg-tertiary/20 text-tertiary border-tertiary/30'
-      : 'bg-primary-container/20 text-primary border-primary-container/30'
+      ? 'bg-sun/10 text-sun-dark border-sun/30'
+      : 'bg-sage/10 text-sage border-sage/30'
 
   const handleSlider = ([s, e]: number[]) => {
     if (e - s < 5) return
@@ -54,9 +54,9 @@ export default function ClipEditor({ clip, onChange, onClose, videoDuration = 60
   }
 
   return (
-    <div className="mx-4 mb-4 p-4 rounded-xl bg-surface-container border border-white/10 space-y-4 animate-fade-up">
+    <div className="mx-4 mb-4 p-4 rounded-xl bg-parchment-cream border border-parchment-wheat space-y-4 animate-fade-up">
       <div className="flex items-center justify-between">
-        <span className="text-on-surface text-sm font-medium">Editar Intervalo</span>
+        <span className="text-ink text-sm font-medium">Editar Intervalo</span>
         <div className={cn('text-xs px-2.5 py-1 rounded-full border font-medium', durationColor)}>
           {Math.round(duration)}s — {durationLabel}
         </div>
@@ -72,22 +72,22 @@ export default function ClipEditor({ clip, onChange, onClose, videoDuration = 60
         onValueChange={handleSlider}
         minStepsBetweenThumbs={5}
       >
-        <Slider.Track className="bg-surface-high relative grow rounded-full h-1">
-          <Slider.Range className="absolute bg-primary-container rounded-full h-full" />
+        <Slider.Track className="bg-parchment-wheat relative grow rounded-full h-1">
+          <Slider.Range className="absolute bg-sage rounded-full h-full" />
         </Slider.Track>
         <Slider.Thumb
           className={cn(
-            'block w-4 h-4 bg-white rounded-full border-2 border-primary-container',
-            'hover:border-primary shadow-glass cursor-grab active:cursor-grabbing',
-            'focus:outline-none focus:ring-2 focus:ring-primary-container/50 focus:ring-offset-2 focus:ring-offset-surface-container'
+            'block w-4 h-4 bg-parchment-warm rounded-full border-2 border-sage',
+            'hover:border-forest shadow-bark cursor-grab active:cursor-grabbing',
+            'focus:outline-none focus:ring-2 focus:ring-sage/50 focus:ring-offset-2 focus:ring-offset-parchment-cream'
           )}
           aria-label="Início"
         />
         <Slider.Thumb
           className={cn(
-            'block w-4 h-4 bg-white rounded-full border-2 border-primary-container',
-            'hover:border-primary shadow-glass cursor-grab active:cursor-grabbing',
-            'focus:outline-none focus:ring-2 focus:ring-primary-container/50 focus:ring-offset-2 focus:ring-offset-surface-container'
+            'block w-4 h-4 bg-parchment-warm rounded-full border-2 border-sage',
+            'hover:border-forest shadow-bark cursor-grab active:cursor-grabbing',
+            'focus:outline-none focus:ring-2 focus:ring-sage/50 focus:ring-offset-2 focus:ring-offset-parchment-cream'
           )}
           aria-label="Fim"
         />
@@ -96,43 +96,43 @@ export default function ClipEditor({ clip, onChange, onClose, videoDuration = 60
       {/* Time inputs */}
       <div className="flex items-end gap-3">
         <div className="flex-1">
-          <label className="block text-xs text-on-surface-variant mb-1">Início (m:ss)</label>
+          <label className="block text-xs text-bark mb-1">Início (m:ss)</label>
           <input
             value={startInput}
             onChange={(e) => setStartInput(e.target.value)}
             onBlur={commitStart}
             onKeyDown={(e) => e.key === 'Enter' && commitStart()}
             className={cn(
-              'w-full bg-surface-high text-on-surface text-sm px-3 py-2 rounded-lg',
-              'border border-white/10 focus:border-primary-container focus:outline-none',
+              'w-full bg-parchment-warm text-ink text-sm px-3 py-2 rounded-lg',
+              'border border-parchment-wheat focus:border-sun focus:outline-none',
               'transition-colors duration-200'
             )}
           />
         </div>
-        <span className="text-on-surface-variant pb-2.5">→</span>
+        <span className="text-bark pb-2.5">→</span>
         <div className="flex-1">
-          <label className="block text-xs text-on-surface-variant mb-1">Fim (m:ss)</label>
+          <label className="block text-xs text-bark mb-1">Fim (m:ss)</label>
           <input
             value={endInput}
             onChange={(e) => setEndInput(e.target.value)}
             onBlur={commitEnd}
             onKeyDown={(e) => e.key === 'Enter' && commitEnd()}
             className={cn(
-              'w-full bg-surface-high text-on-surface text-sm px-3 py-2 rounded-lg',
-              'border border-white/10 focus:border-primary-container focus:outline-none',
+              'w-full bg-parchment-warm text-ink text-sm px-3 py-2 rounded-lg',
+              'border border-parchment-wheat focus:border-sun focus:outline-none',
               'transition-colors duration-200'
             )}
           />
         </div>
       </div>
 
-      <p className="text-on-surface-variant text-xs">
+      <p className="text-bark text-xs">
         TikTok / Shorts: 15–60s. Arraste os pontos ou edite os tempos diretamente.
       </p>
 
       <button
         onClick={onClose}
-        className="w-full py-2 rounded-lg text-sm text-on-surface-variant hover:text-on-surface border border-white/10 hover:border-white/20 transition-colors"
+        className="w-full py-2 rounded-lg text-sm text-bark hover:text-ink border border-parchment-wheat hover:border-sage/30 transition-colors"
       >
         Fechar editor
       </button>

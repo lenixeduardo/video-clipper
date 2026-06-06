@@ -12,20 +12,23 @@ export default function LoadingSpinner({ size = 56 }: { size?: number }) {
           cx="28"
           cy="28"
           r="25"
-          stroke="#22d3ee"
+          stroke="#5a8a4a"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeDasharray="40 120"
           className="animate-pulse-ring"
         />
       </svg>
-      {/* Inner glyph */}
-      <div className="w-8 h-8 rounded-lg bg-primary-container/20 border border-primary-container/40 flex items-center justify-center">
+      {/* Inner glyph — sun with rays */}
+      <div className="w-8 h-8 rounded-lg bg-sun/20 border border-sun/40 flex items-center justify-center">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="2.5" fill="#c9862a" fillOpacity="0.9" />
           <path
-            d="M8 2L10 6H14L11 9L12 13L8 11L4 13L5 9L2 6H6L8 2Z"
-            fill="#22d3ee"
-            fillOpacity="0.8"
+            d="M8 1.5V3M8 13V14.5M1.5 8H3M13 8H14.5M3.4 3.4L4.4 4.4M11.6 11.6L12.6 12.6M12.6 3.4L11.6 4.4M4.4 11.6L3.4 12.6"
+            stroke="#c9862a"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeOpacity="0.85"
           />
         </svg>
       </div>

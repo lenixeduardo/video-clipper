@@ -62,28 +62,28 @@ export default function ResultsSection({ jobId, status, onStatusUpdate }: Props)
         <div className="flex flex-col items-center gap-6 py-12 animate-fade-up">
           <LoadingSpinner />
           <div className="text-center">
-            <p className="text-on-surface text-lg font-medium mb-2">
+            <p className="text-ink text-lg font-medium mb-2">
               {STATUS_LABELS[status?.status ?? 'pending']}
             </p>
-            <p className="text-on-surface-variant text-sm">
+            <p className="text-bark text-sm">
               Nossa IA está analisando cada frame do vídeo
             </p>
           </div>
 
           {/* Progress bar */}
-          <div className="w-64 h-1 bg-surface-high rounded-full overflow-hidden">
+          <div className="w-64 h-1.5 bg-parchment-cream rounded-full overflow-hidden">
             <div
-              className="h-full bg-primary-container rounded-full transition-all duration-700 ease-out shadow-glow-cyan"
+              className="h-full bg-sage rounded-full transition-all duration-700 ease-out"
               style={{ width: `${status?.progress ?? 5}%` }}
             />
           </div>
-          <span className="text-on-surface-variant text-xs">{status?.progress ?? 5}%</span>
+          <span className="text-bark text-xs">{status?.progress ?? 5}%</span>
         </div>
       )}
 
       {/* Error */}
       {status?.status === 'error' && (
-        <div className="flex items-center gap-3 p-4 rounded-xl bg-error-container/20 border border-error/30 text-error animate-fade-up">
+        <div className="flex items-center gap-3 p-4 rounded-xl bg-clay-pale border border-clay/30 text-clay animate-fade-up">
           <AlertCircle className="w-5 h-5 shrink-0" />
           <span className="text-sm">{status.error ?? 'Erro desconhecido'}</span>
         </div>
@@ -95,20 +95,20 @@ export default function ResultsSection({ jobId, status, onStatusUpdate }: Props)
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <h2 className="text-on-surface text-xl font-serif font-semibold">
+              <h2 className="text-ink text-xl font-serif font-semibold">
                 Resultados do Processamento
               </h2>
-              <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-sun animate-pulse" />
             </div>
             <div className="flex gap-2">
               <button
-                className="p-2 rounded-lg bg-surface-high border border-white/10 hover:border-white/20 text-on-surface-variant hover:text-on-surface transition-colors"
+                className="p-2 rounded-lg bg-parchment-warm border border-parchment-wheat hover:border-sage/30 text-bark hover:text-sage transition-colors"
                 title="Filtrar"
               >
                 <SlidersHorizontal className="w-4 h-4" />
               </button>
               <button
-                className="p-2 rounded-lg bg-surface-high border border-white/10 hover:border-white/20 text-on-surface-variant hover:text-on-surface transition-colors"
+                className="p-2 rounded-lg bg-parchment-warm border border-parchment-wheat hover:border-sage/30 text-bark hover:text-sage transition-colors"
                 title="Ordenar"
               >
                 <ArrowUpDown className="w-4 h-4" />

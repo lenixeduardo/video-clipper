@@ -60,18 +60,18 @@ export default function VideoInput({ onJobCreated, loading, setLoading }: Props)
         <div
           className={cn(
             'flex-1 flex items-center gap-3 px-4 py-3.5',
-            'backdrop-blur-lens bg-white/5 border border-white/20 rounded-lg',
-            'focus-within:border-primary-container focus-within:shadow-glow-cyan transition-all duration-200'
+            'bg-parchment-warm border border-parchment-wheat rounded-lg',
+            'focus-within:border-sun focus-within:shadow-glow-sun transition-all duration-200'
           )}
         >
-          <Link2 className="w-4 h-4 text-on-surface-variant shrink-0" />
+          <Link2 className="w-4 h-4 text-bark shrink-0" />
           <input
             type="url"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && !loading && handleUrl()}
             placeholder="Cole o link do YouTube aqui..."
-            className="flex-1 bg-transparent text-on-surface placeholder-on-surface-variant/50 outline-none text-sm"
+            className="flex-1 bg-transparent text-ink placeholder-bark/50 outline-none text-sm"
             disabled={loading}
           />
         </div>
@@ -80,8 +80,8 @@ export default function VideoInput({ onJobCreated, loading, setLoading }: Props)
           disabled={loading || !url}
           className={cn(
             'flex items-center gap-2 px-5 py-3.5 rounded-lg font-semibold text-sm',
-            'bg-primary-container text-on-primary',
-            'hover:bg-primary-container/90 hover:shadow-glow-cyan',
+            'bg-sun text-forest',
+            'hover:bg-sun-light hover:shadow-glow-sun',
             'disabled:opacity-40 disabled:cursor-not-allowed',
             'transition-all duration-200'
           )}
@@ -97,9 +97,9 @@ export default function VideoInput({ onJobCreated, loading, setLoading }: Props)
 
       {/* Divider */}
       <div className="flex items-center gap-3">
-        <div className="flex-1 h-px bg-white/10" />
-        <span className="text-on-surface-variant text-xs">ou faça upload</span>
-        <div className="flex-1 h-px bg-white/10" />
+        <div className="flex-1 h-px bg-parchment-wheat" />
+        <span className="text-bark text-xs">ou faça upload</span>
+        <div className="flex-1 h-px bg-parchment-wheat" />
       </div>
 
       {/* Drop zone */}
@@ -116,16 +116,16 @@ export default function VideoInput({ onJobCreated, loading, setLoading }: Props)
           'border-2 border-dashed rounded-xl p-8 text-center cursor-pointer',
           'transition-all duration-200',
           dragOver
-            ? 'border-primary-container bg-primary-container/10 shadow-glow-cyan'
-            : 'border-white/10 hover:border-white/30 hover:bg-white/[0.02]',
+            ? 'border-sun bg-sun/8 shadow-glow-sun'
+            : 'border-parchment-wheat hover:border-sage/40 hover:bg-sage/[0.03]',
           loading && 'opacity-50 cursor-not-allowed'
         )}
       >
-        <Upload className={cn('w-6 h-6 mx-auto mb-2', dragOver ? 'text-primary-container' : 'text-on-surface-variant')} />
-        <p className="text-on-surface text-sm font-medium">
+        <Upload className={cn('w-6 h-6 mx-auto mb-2', dragOver ? 'text-sun' : 'text-bark')} />
+        <p className="text-ink text-sm font-medium">
           {dragOver ? 'Solte aqui' : 'Arraste um vídeo ou clique para selecionar'}
         </p>
-        <p className="text-on-surface-variant text-xs mt-1">MP4, MOV, AVI, MKV — até 2 GB</p>
+        <p className="text-bark text-xs mt-1">MP4, MOV, AVI, MKV — até 2 GB</p>
         <input
           ref={fileRef}
           type="file"

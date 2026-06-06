@@ -35,16 +35,16 @@ const FEATURES = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 px-6 border-t border-white/5">
+    <section id="features" className="py-24 px-6 border-t border-parchment-wheat">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-primary-container text-label-sm uppercase tracking-widest mb-3">
+          <p className="text-sage text-label-sm uppercase tracking-widest mb-3 font-sans">
             Funcionalidades
           </p>
-          <h2 className="font-serif text-h2 text-on-surface mb-4">
+          <h2 className="font-serif text-h2 text-ink mb-4">
             Tudo que você precisa
           </h2>
-          <p className="text-on-surface-variant text-body-lg max-w-xl mx-auto">
+          <p className="text-bark text-body-lg max-w-xl mx-auto leading-relaxed">
             De footage bruto a clips virais em minutos. Sem necessidade de habilidades de edição.
           </p>
         </div>
@@ -53,13 +53,13 @@ export default function Features() {
           {FEATURES.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
-              className="p-6 rounded-xl backdrop-blur-lens bg-white/[0.03] border border-white/10 hover:border-primary-container/30 hover:bg-white/[0.05] transition-all duration-brand group"
+              className="p-6 rounded-xl bg-parchment-warm border border-parchment-wheat hover:border-sage/40 hover:bg-sage/[0.03] transition-all duration-brand group"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary-container/10 border border-primary-container/20 flex items-center justify-center mb-4 group-hover:bg-primary-container/20 transition-colors">
-                <Icon className="w-5 h-5 text-primary-container" />
+              <div className="w-10 h-10 rounded-lg bg-sage/10 border border-sage/20 flex items-center justify-center mb-4 group-hover:bg-sage/20 transition-colors">
+                <Icon className="w-5 h-5 text-sage" />
               </div>
-              <h3 className="text-on-surface font-semibold mb-2">{title}</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed">{desc}</p>
+              <h3 className="text-ink font-semibold mb-2">{title}</h3>
+              <p className="text-bark text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>

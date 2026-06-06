@@ -66,16 +66,16 @@ export default function ClipCard({ clip: initialClip, index, jobId, style }: Pro
   return (
     <div
       className={cn(
-        'flex flex-col rounded-xl overflow-hidden border border-white/10',
-        'backdrop-blur-lens bg-surface-container/80',
-        'hover:border-primary-container/40 hover:shadow-card-hover',
+        'flex flex-col rounded-xl overflow-hidden border border-parchment-wheat',
+        'bg-parchment-warm',
+        'hover:border-sage/40 hover:shadow-card-hover',
         'transition-all duration-brand hover:scale-[1.02]',
         'group'
       )}
       style={style}
     >
       {/* Thumbnail */}
-      <div className="relative h-48 bg-surface-high overflow-hidden">
+      <div className="relative h-48 bg-parchment-cream overflow-hidden">
         {clip.thumbnailPath ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -85,28 +85,28 @@ export default function ClipCard({ clip: initialClip, index, jobId, style }: Pro
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <Flame className="w-12 h-12 text-surface-bright" />
+            <Flame className="w-12 h-12 text-parchment-deep" />
           </div>
         )}
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-container/95 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-parchment-warm/95 via-transparent to-transparent" />
 
         {/* Viral score badge */}
         {clip.viralScore && (
-          <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-container/90 backdrop-blur-lens">
-            <span className="text-on-primary text-xs font-bold">{clip.viralScore}% Viral</span>
+          <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sun/90">
+            <span className="text-forest text-xs font-bold">{clip.viralScore}% Viral</span>
           </div>
         )}
 
         {/* Duration badge */}
-        <div className="absolute top-3 right-3 px-2 py-1 rounded bg-black/60 backdrop-blur-lens text-on-surface text-xs">
+        <div className="absolute top-3 right-3 px-2 py-1 rounded bg-forest/70 text-parchment text-xs">
           {Math.round(duration)}s
         </div>
 
-        {/* Chapter label inside thumbnail */}
+        {/* Chapter label */}
         <div className="absolute bottom-3 left-3">
-          <p className="text-on-surface-variant text-[10px] uppercase tracking-widest font-label">
+          <p className="text-bark/60 text-[10px] uppercase tracking-widest">
             CAPÍTULO {String(index + 1).padStart(2, '0')} ·
           </p>
         </div>
@@ -114,13 +114,13 @@ export default function ClipCard({ clip: initialClip, index, jobId, style }: Pro
 
       {/* Content */}
       <div className="flex-1 p-4 space-y-2">
-        <h3 className="text-on-surface font-serif font-semibold text-base leading-snug">
+        <h3 className="text-ink font-serif font-semibold text-base leading-snug">
           Corte {index + 1} - {chapterLabel}
         </h3>
-        <p className="text-on-surface-variant text-sm line-clamp-2 leading-relaxed">
+        <p className="text-bark text-sm line-clamp-2 leading-relaxed">
           {clip.description || 'Sem descrição disponível'}
         </p>
-        <div className="flex items-center gap-2 text-on-surface-variant/60 text-xs font-mono">
+        <div className="flex items-center gap-2 text-bark/60 text-xs font-sans">
           <span>{formatTime(clip.start)}</span>
           <span>→</span>
           <span>{formatTime(clip.end)}</span>
@@ -146,8 +146,8 @@ export default function ClipCard({ clip: initialClip, index, jobId, style }: Pro
               'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium',
               'border transition-all duration-200',
               editing
-                ? 'border-primary-container/50 text-primary-container bg-primary-container/10'
-                : 'border-white/10 text-on-surface-variant hover:border-white/20 hover:text-on-surface'
+                ? 'border-sun/50 text-sun bg-sun/10'
+                : 'border-parchment-wheat text-bark hover:border-sage/40 hover:text-sage'
             )}
           >
             <Edit2 className="w-3.5 h-3.5" />
@@ -158,8 +158,8 @@ export default function ClipCard({ clip: initialClip, index, jobId, style }: Pro
             disabled={downloading}
             className={cn(
               'flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium',
-              'bg-primary-container/10 border border-primary-container/30 text-primary-container',
-              'hover:bg-primary-container/20 hover:shadow-glow-cyan',
+              'bg-sage/10 border border-sage/30 text-sage',
+              'hover:bg-sage/20 hover:shadow-card-hover',
               'disabled:opacity-40 disabled:cursor-not-allowed',
               'transition-all duration-200'
             )}
@@ -174,12 +174,12 @@ export default function ClipCard({ clip: initialClip, index, jobId, style }: Pro
           onClick={handleCopyPrompt}
           className={cn(
             'w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium',
-            'bg-surface-high border border-white/10 text-on-surface',
-            'hover:border-white/20 hover:bg-surface-highest',
+            'bg-parchment-cream border border-parchment-wheat text-ink',
+            'hover:border-sage/30 hover:bg-parchment-cream',
             'transition-all duration-200'
           )}
         >
-          {copied ? <Check className="w-4 h-4 text-primary-container" /> : <Copy className="w-4 h-4" />}
+          {copied ? <Check className="w-4 h-4 text-sun" /> : <Copy className="w-4 h-4" />}
           {copied ? 'Copiado!' : 'Copiar Prompt'}
         </button>
       </div>
